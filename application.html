@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета для получения котика в Девять жизней</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>Кошанчий приют "Девять жизней"</h1>
+    </header>
+    
+    <main class="container">
+        <form class="application-form" action="/submit-application" method="POST">
+            <h2 class="form-title">Анкета для усыновления котика</h2>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">Имя</label>
+                    <input type="text" id="firstName" name="firstName" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lastName">Фамилия</label>
+                    <input type="text" id="lastName" name="lastName" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="age">Возраст</label>
+                <input type="number" id="age" name="age" class="form-control" min="18" max="100" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="passportNumber">Серия и номер паспорта</label>
+                <input type="text" id="passportNumber" name="passportNumber" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="passportIssued">Кем и когда выдан</label>
+                <input type="text" id="passportIssued" name="passportIssued" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Контактный телефон</label>
+                <input type="tel" id="phone" name="phone" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Электронная почта</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="experience">Опыт содержания животных</label>
+                <textarea id="experience" name="experience" class="form-control" rows="4"></textarea>
+            </div>
+            
+            <!-- Как я страдал с этой картой -->
+            <div class="form-group">
+                <label for="address">Адрес проживания</label>
+                <input type="text" id="address" name="address" class="form-control" required readonly>
+                <div id="addressMap"></div>
+                <div class="location-buttons">
+                    <button type="button" id="locateMeBtn" class="location-btn">Определить мое местоположение</button>
+                    <button type="button" id="resetMapBtn" class="location-btn">Сбросить метку</button>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">Отправить анкету</button>
+        </form>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="map.js" type="text/javascript"></script>
+</body>
+</html>
