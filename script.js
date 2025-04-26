@@ -79,3 +79,18 @@ document.addEventListener('DOMContentLoaded', function() {
         nav.classList.toggle('active');
     });
 
+    $(document).ready(function(){
+        $('.story-slider').bxSlider({
+            mode: 'horizontal',
+            slideWidth: 350, /* Фиксированная ширина слайдов */
+            minSlides: 1,
+            maxSlides: 2, /* Показываем по 2 слайда одновременно */
+            moveSlides: 1,
+            slideMargin: 15, /* Уменьшили отступ между слайдами */
+            adaptiveHeight: true,
+            responsive: true,
+            auto: false,
+            pager: false,
+            controls: false
+        });
+    });
