@@ -144,10 +144,16 @@ nav a:hover {
 
 .hero-banner {
     position: relative;
-    height: 100vh;
-    min-height: 600px;
-    max-height: 1200px;
+    height: 80vh;
+    min-height: 500px;
+    max-height: 800px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background-color: #121212; /* Фон на случай если изображение не загрузится */
 }
 
 .hero-banner::before {
@@ -158,11 +164,11 @@ nav a:hover {
     right: 0;
     bottom: 0;
     background-image: url('kot.png');
-    
-
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     z-index: 1;
+    opacity: 0.7;
 }
 
 .banner-overlay {
@@ -171,19 +177,50 @@ nav a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
     z-index: 2;
 }
 
 .banner-content {
     position: relative;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 10%;
     z-index: 3;
-    color: white;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.banner-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.banner-subtitle {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.banner-btn {
+    display: inline-block;
+    background-color: #e6ad32;
+    color: #121212;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.3s;
+    border: 2px solid #e6ad32;
+}
+
+.banner-btn:hover {
+    background-color: transparent;
+    color: #e6ad32;
 }
 
 .banner-content h1 {
@@ -384,71 +421,71 @@ nav a:hover {
 }
 
 
+
 .happy-stories {
-    padding: 80px 0;
     background-color: #1a1a1a;
+    padding: 60px 0;
 }
 
-.happy-stories h2 {
+.section-title {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #e6ad32;
-}
-
-.all-stories-link {
-    text-align: center;
     margin-bottom: 40px;
-}
-
-.all-stories-link a {
     color: #e6ad32;
-    text-decoration: none;
-    font-size: 1.1rem;
-    border-bottom: 1px solid #e6ad32;
-    padding-bottom: 3px;
 }
 
-.story-card {
-    display: flex;
-    max-width: 1200px;
+/* Стили для слайдера */
+.slider-container {
+    max-width: 900px;
     margin: 0 auto;
+    position: relative;
+}
+
+.story-slider {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.story-slide {
     background-color: #252525;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 0 15px;
+    padding: 20px;
 }
 
-.story-image {
-    flex: 1;
-    min-width: 300px;
+.slide-content {
+    display: flex;
+    flex-direction: column;
 }
 
-.story-image img {
+.slide-image {
+    height: 300px;
     width: 100%;
-    height: 100%;
     object-fit: cover;
-}
-
-.story-content {
-    flex: 1;
-    padding: 40px;
-}
-
-.story-content h3 {
-    font-size: 1.8rem;
-    color: white;
+    border-radius: 5px;
     margin-bottom: 20px;
 }
 
-.story-text p {
+.slide-title {
+    color: #e6ad32;
+    font-size: 1.5rem;
+    margin: 0 0 15px 0;
+}
+
+.slide-text {
     color: #ccc;
     line-height: 1.6;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .read-more {
-    margin-top: 30px;
+    color: #e6ad32;
+    text-decoration: none;
+    font-weight: bold;
+    align-self: flex-end;
 }
 
 .read-more-btn {
@@ -465,6 +502,8 @@ nav a:hover {
     background-color: #e6ad32;
     color: #121212;
 }
+
+
 
 
 .find-cat {
@@ -632,28 +671,31 @@ nav a:hover {
     .story-image {
         height: 300px;
     }
+    .hero-banner {
+        height: 70vh;
+        min-height: 400px;
+    }
 }
 
 
 
 @media (max-width: 768px) {
+    .hero-banner {
+        height: 60vh;
+        min-height: 350px;
+    }
+    
+    .banner-title {
+        margin-bottom: 15px;
+    }
+    
+    .banner-btn {
+        padding: 12px 25px;
+        font-size: 1.1rem;
+    }
+
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .hero-banner {
-        min-height: 400px;
-    }
-    
-    .banner-content {
-        padding-left: 5%;
-        text-align: center;
-        align-items: center;
-    }
-    
-    .banner-content h1 {
-        font-size: 2.5rem;
-        max-width: 90%;
     }
 
     .need-item {
